@@ -1,0 +1,4 @@
+-keep class com.dronehacks.app.model.** { *; }
+-keep class com.dronehacks.app.protocol.** { *; }
+-keepattributes Signature
+-keepattributes *Annotation*

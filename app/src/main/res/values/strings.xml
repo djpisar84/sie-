@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DroneHacks</string>
+    <string name="app_version">v1.0.0</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_connect">Connect</string>
+    <string name="nav_mods">Modifications</string>
+    <string name="nav_nfz">NFZ</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Connection -->
+    <string name="connect_title">Connect Drone</string>
+    <string name="connect_usb">USB / OTG</string>
+    <string name="connect_wifi">WiFi</string>
+    <string name="connect_scanning">Scanning…</string>
+    <string name="connect_no_device">No device found</string>
+    <string name="connect_success">Connected</string>
+    <string name="connect_failed">Connection failed</string>
+
+    <!-- Disclaimer -->
+    <string name="disclaimer_title">Important Notice</string>
+    <string name="disclaimer_body">This application is intended for authorized use only. Modifying drone firmware may void your warranty and violate local aviation regulations. Always check your local laws before flying. The developers are not responsible for any misuse.</string>
+    <string name="disclaimer_accept">I understand and accept</string>
+    <string name="disclaimer_decline">Decline</string>
+</resources>

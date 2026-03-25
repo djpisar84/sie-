@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DJI Mini / Mini 2 / Mini 3 -->
+    <usb-device vendor-id="0x2ca3" />
+    <!-- Generic DJI devices -->
+    <usb-device vendor-id="0x18d1" />
+</resources>
