@@ -1,0 +1,20 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "Cześć, jak się masz?"
+    },
+    {
+      "role": "assistant",
+      "content": "Cześć! Mam się dobrze, dziękuję za pytanie. Jak się masz Ty?"
+    },
+    {
+      "role": "user",
+      "content": "Świetnie, dziękuję!"
+    },
+    {
+      "role": "assistant",
+      "content": "Cieszę się tym! Czy mogę Ci czymś jeszcze pomóc?"
+    }
+  ]
+}

@@ -22,7 +22,9 @@ def extract_messages(obj):
     msgs = []
     if isinstance(obj, list):
         for it in obj:
+            # Szukaj roli
             role = it.get('role') or it.get('author') or it.get('sender') or it.get('from')
+            # Szukaj treści
             text = None
             if 'content' in it:
                 c = it['content']
@@ -40,10 +42,17 @@ def extract_messages(obj):
                 elif isinstance(c, dict):
                     text = c.get('text') or c.get('content') or str(c)
             else:
-                # rożne struktury
+                # różne struktury
                 text = it.get('text') or it.get('message') or None
-            role_str = str(role) if role else 'unknown'
-            msgs.append((role_str, text or ''))
+            
+            # Konwertuj rolę (user -> User, assistant -> Assistant)
+            if role:
+                role_str = str(role).capitalize()
+            else:
+                role_str = 'Unknown'
+            
+            if text:
+                msgs.append((role_str, text))
     elif isinstance(obj, dict):
         # common keys: messages, items, conversation, turns
         for key in ('messages', 'items', 'conversation', 'turns', 'utterances'):
@@ -89,6 +98,21 @@ def main():
             work_dir = tmp.name
         elif os.path.isdir(input_path):
             work_dir = input_path
+        elif os.path.isfile(input_path) and input_path.lower().endswith('.json'):
+            # single JSON file
+            try:
+                obj = read_json(input_path)
+                messages = extract_messages(obj)
+                if messages:
+                    base = os.path.splitext(os.path.basename(input_path))[0]
+                    out_file = os.path.join(out_dir, base + '.md')
+                    to_markdown(input_path, messages, out_file)
+                    print('Zapisano', out_file)
+                else:
+                    print('Brak wiadomości w', input_path)
+            except Exception as e:
+                print('Błąd przy przetwarzaniu pliku:', e)
+            return
         else:
             print('Input nie jest zipem ani katalogiem. Spróbuj rozpakować ZIP ręcznie.')
             return
